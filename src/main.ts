@@ -1,24 +1,9 @@
 import { Module, Controller, Get } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
 
 
-@Controller()
-class AppController {
 
-  @Get()
-  getRootRoute() {
-    return 'hello world';
-  }
-
-}
-
-@Module({
-  // registers controllers
-  controllers: [AppController]
-})
-class AppModule {
-
-}
 
 
 // start nest app instance, bootstrap is conventional name
