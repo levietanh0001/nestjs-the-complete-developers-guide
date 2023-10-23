@@ -1,13 +1,13 @@
-import { MessagesRepository } from "./messages.repository";
+import { Controller, Injectable } from '@nestjs/common';
+import { MessagesRepository } from './messages.repository';
 
-export class MessageService {
 
-  messagesRepo: MessagesRepository;
-  constructor() {
-
+@Injectable()
+export class MessagesService {
+  constructor(public messagesRepo: MessagesRepository) {
     // MessagesRepository is a dependency of MessageService
     // don't do this in real app, use DI
-    this.messagesRepo = new MessagesRepository();
+    // this.messagesRepo = new MessagesRepository();
   }
 
   async findOne(id: string) {
@@ -21,5 +21,4 @@ export class MessageService {
   create(content: string) {
     return this.messagesRepo.create(content);
   }
-  
 }
